@@ -1,0 +1,18 @@
+version: '3.8'
+
+services:
+  # Serviço 1: Sua aplicação Python
+  web:
+    build: .
+    ports:
+      - "5000:5000"
+    depends_on:
+      - db
+
+  # Serviço 2: O Banco de Dados (Exigido pelo prof)
+  db:
+    image: postgres:13
+    environment:
+      POSTGRES_USER: usuario
+      POSTGRES_PASSWORD: senha
+      POSTGRES_DB: cripto_db
